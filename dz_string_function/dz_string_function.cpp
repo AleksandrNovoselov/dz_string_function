@@ -12,26 +12,31 @@
 
 #include <iostream>
 #include<string>
+#include "String.h"
+
 using namespace std;
 
-class String
-{
-    string obj;
-public:
-
-};
 
 int main()
 {
+    setlocale(LC_ALL, "ru");
+    string textTest{R"(//Дан текст программы с комментариами "//",
+а так женачинаются с "/*" и заканчиваются "*/")"};
+    cout << textTest << endl << endl;
+    
+    String textF;
+    textF.delComment(textTest);
+    cout << textTest << endl << endl;
+
+    cout << "А теперь введите текст со знаками комментариев:\n";
     string text;
     getline(cin, text);
-    int n = 0;
 
-    while (n != string::npos)
-    {
-        n = text.find("//");
+    textF.delComment(text);
+    cout << "\nОбработанный текст:\n";
+    cout << text<< endl;
 
-        text.replace(n, 2, "");
-    }
+
+    return 0;
 }
 

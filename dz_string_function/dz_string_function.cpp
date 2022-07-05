@@ -20,7 +20,7 @@ using namespace std;
 int main()
 {
     setlocale(LC_ALL, "ru");
-    string textTest{R"(//Дан текст программы с комментариами "//",
+    string textTest{R"(//Дан текстaaa программы с комментариами "//",
 а так женачинаются с "/*" и заканчиваются "*/")"};
     cout << textTest << endl << endl;
     
@@ -28,14 +28,22 @@ int main()
     textF.delComment(textTest);
     cout << textTest << endl << endl;
 
-    cout << "А теперь введите текст со знаками комментариев:\n";
-    string text;
-    getline(cin, text);
-
-    textF.delComment(text);
+    cout << "А теперь введите текст со знаками комментариев(на английском):\n";
+    String text;
+    text.setStr();
+    text.delComment();
     cout << "\nОбработанный текст:\n";
-    cout << text<< endl;
+    text.Print();
 
+    cout << "\nВторая часть\nВыделение текста в скобки\n\n";
+    string repl{"aaa"};
+    cout<<textF.replase(textTest,repl)<<endl << endl;
+
+    cout << "Введите какую часть строки, в введенном выше тексте будем выделять(на английском)\n";
+    cin >> repl;
+
+    cout<<text.replase(repl) << endl << endl;
+    
 
     return 0;
 }
